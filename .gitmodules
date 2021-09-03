@@ -1,0 +1,3 @@
+[submodule "vccc"]
+	path = vccc
+	url = ./l../vccc
