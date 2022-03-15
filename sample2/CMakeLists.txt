@@ -16,5 +16,4 @@ add_executable(WasmSample
 
 target_include_directories(WasmSample PUBLIC ${SAMPLE_SRC_DIR})
 target_link_libraries(WasmSample tflite opencv vccc)
-#set_target_properties(seeso_core PROPERTIES OUTPUT_NAME "seeso")
-#set_target_properties(seeso_core PROPERTIES OUTPUT_NAME "seeso")
+# set(CMAKE_EXECUTABLE_SUFFIX ".html")
