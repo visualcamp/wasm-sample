@@ -1,4 +1,4 @@
-import {ImageCapture} from './polyfil/imagecapture';
+import {ImageCapture} from './polyfil/imagecapture.js';
 
 const delay = (ms, cb) =>
     new Promise((resolve) =>
@@ -10,7 +10,6 @@ const delay = (ms, cb) =>
 
 export class CameraThread{
   constructor() {
-    const stream = await navigator.mediaDevices.getUserMedia({'video': true});
     const fps = 30;
     this.min_interval_ms = 1000 / fps;
     this.last_frame_time = Date.now();
@@ -20,12 +19,10 @@ export class CameraThread{
     this.callback = () => {};
   }
   
-  init(stream) {
-    const stream = await navigator.mediaDevices.getUserMedia({'video': true});
-    this.releaseStreamTrack_();
-    const tracks = stream.getVideoTracks();
-    if (tracks) {
-      this.track = tracks[0];
+  async init(track) {
+    this.release();
+    if (track) {
+      this.track = track;
       this.imageCapture = new ImageCapture(this.track);
       return true;
     }
@@ -59,7 +56,7 @@ export class CameraThread{
   async processFunc_() {
     while (this.running) {
       try {
-        const bitmap = await imageCapture.grabFrame();
+        const bitmap = await this.imageCapture.grabFrame();
         this.callback(bitmap);
       } catch (e) {
         console.log(e);

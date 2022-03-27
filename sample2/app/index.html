@@ -4,8 +4,55 @@
     <title>Wasm Sample Page</title>
     <meta name="description" content="Wasm Face Detection Sample Page">
     <meta name="keywords" content="wasm sample face detection facedetection tensorflow">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script type="module">
+        import {startCamera, stopCamera} from './index.js';
+        document.querySelector('#camera-on').addEventListener('click', startCamera);
+        document.querySelector('#camera-off').addEventListener('click', stopCamera);
+    </script>        
 </head>
 <body>
-    Content goes here.
+<div class="block">
+    <div class="content">
+        <div class="overlay"></div>
+        <video autoplay></video>
+    </div>
+    
+    <button id="camera-on"> Camera On </button>
+    <button id="camera-off"> Camera Off </button>
+</div>
+
+<style>
+div.block {
+   width: 50%; 
+   text-align: center;
+   position: relative;
+}
+
+.block .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.block video {
+    background-color: white;
+    display: block;
+    width: 100%;
+    height: 37.5vw;
+}
+
+.content .overlay {
+  content: '';
+  position: absolute;
+  border: 2px;
+  border-style:solid;
+  border-color:red;
+  border-radius: 5px;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+</style>
 </body>
 </html>
