@@ -89,5 +89,8 @@ Server is running on http://localhost:8000
 # Open browser and connect to http://localhost:8000/
 ```
 
+---
+
 **Demo**
+
 <img src="./res/demo.gif" width="320" height="180">
