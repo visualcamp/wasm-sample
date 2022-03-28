@@ -89,4 +89,5 @@ Server is running on http://localhost:8000
 # Open browser and connect to http://localhost:8000/
 ```
 
-
+**Demo**
+![Demo](./res/demo.gif | width=640)
