@@ -3,24 +3,20 @@ const fs = require('fs').promises;
 
 const host = 'localhost';
 const port = 8000;
+const typeMap = {
+    'html': 'text/html',
+    'js': 'text/javascript',
+    'wasm': 'application/wasm',
+}
 
 const requestListener = function (req, res) {
     let url = req.url;
     if (url === "/") url = "/index.html";
     
-    let contentType = null;
-    if (url.endsWith('.html')) {
-        contentType = "text/html";    
-    } else if (url.endsWith('.js')) {
-        contentType = "text/javascript";
-    } else if (url.endsWith('.wasm')) {
-        contentType = "application/wasm";
-    }
-    if (contentType) {
-        res.setHeader("Content-Type", contentType);
+    for (const [key, value] of Object.entries(typeMap)) {
+        if (url.endsWith(key)) res.setHeader("Content-Type", value);
     }
     
-    console.log("target : ", __dirname + url);
     fs.readFile(__dirname + url)
         .then(contents => {
             res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');

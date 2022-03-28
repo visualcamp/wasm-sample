@@ -4,6 +4,13 @@ project(WasmSample)
 set(CMAKE_CXX_STANDARD 17)
 set(SAMPLE_SRC_DIR ${CMAKE_SOURCE_DIR}/include)
 
+set(EMSDK_FLAGS
+        " -pthread -s USE_PTHREADS -s PTHREAD_POOL_SIZE=4 \
+        -s INITIAL_MEMORY=128mb ")
+
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EMSDK_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EMSDK_FLAGS}")
+
 add_subdirectory(tflite)
 add_subdirectory(opencv)
 add_subdirectory(vccc)
@@ -16,6 +23,3 @@ add_executable(WasmSample
 
 target_include_directories(WasmSample PUBLIC ${SAMPLE_SRC_DIR})
 target_link_libraries(WasmSample tflite opencv vccc)
-#set_target_properties(seeso_core PROPERTIES OUTPUT_NAME "seeso")
-#set_target_properties(seeso_core PROPERTIES OUTPUT_NAME "seeso")
-set(CMAKE_EXECUTABLE_SUFFIX ".html")

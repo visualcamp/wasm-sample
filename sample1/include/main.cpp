@@ -1,11 +1,11 @@
 #include <chrono>
-#include <iostream>
+#include <emscripten.h>
 
 #include "cutemodel/cute_model.h"
 #include "blaze_face_wrapper.h"
-#include "vccc/log.hpp"
 #include "sample_jpg.h"
 
+EMSCRIPTEN_KEEPALIVE
 int main() {
   vc::BlazeFaceWrapper face_wrapper;
   std::vector<unsigned char> sample_image(elon_jpg, elon_jpg + elon_jpg_len);
@@ -19,7 +19,7 @@ int main() {
     auto [roi, angle] = face_wrapper.Execute(image, 0);
     time_duration += duration_cast<nanoseconds>(high_resolution_clock::now() - start_time);
   }
-  LOGD("Avg time : ", time_duration.count() / (100 * 1000000.0));
+  printf("Avg time : %f\n", time_duration.count() / (100 * 1000000.0));
 
   return 0;
 }
