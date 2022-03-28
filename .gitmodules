@@ -1,3 +1,6 @@
 [submodule "vccc"]
-	path = vccc
+	path = sample1/vccc
+	url = https://github.com/visualcamp/vccc.git
+[submodule "sample2/vccc"]
+	path = sample2/vccc
 	url = https://github.com/visualcamp/vccc.git
