@@ -90,4 +90,4 @@ Server is running on http://localhost:8000
 ```
 
 **Demo**
-![Demo](./res/demo.gif | width=640)
+<img src="./res/demo.gif" width="320" height="180">
