@@ -9,7 +9,7 @@ const face = document.querySelector(".content .overlay");
 
 const camWidth = 1280;
 const camHeight = 720;
-const canvasWidthPercent = 70;
+const canvasWidthPercent = 90;
 block.style.width = canvasWidthPercent + "%";
 
 export function startCamera() {
