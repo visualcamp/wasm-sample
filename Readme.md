@@ -3,7 +3,7 @@
 This is the sample project for the medium post : [**Face Detection on Web**](https://blog.seeso.io/face-detection-on-web-tflite-wasm-simd-introduction-8b5156336fe0)
 Each sample directory is correspond to each blog post.
 - sample1 : __[Build TFLite & OpenCV to WASM](https://blog.seeso.io/face-detection-on-web-tflite-wasm-simd-462975e0f628)__
-- sample2 : __WASM and SIMD with a Sample__ ([Korean](https://medium.com/@woang1892/5b3f0bd52d19), English)
+- sample2 : __WASM and SIMD with a Sample__ ([Korean](https://medium.com/@woang1892/5b3f0bd52d19), [English](https://medium.com/@woang1892/f5cd5cd8bb82))
 
 ## How to run
 
