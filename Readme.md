@@ -15,7 +15,7 @@ emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 2.0.15
 ...
 ```
 - Need node
-- Does not work with ARM Mac
+- Cannot build with ARM Mac
 
 ---
 
